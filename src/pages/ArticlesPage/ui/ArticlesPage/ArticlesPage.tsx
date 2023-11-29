@@ -17,3 +17,4 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 };
 
 export default memo(ArticlesPage);
+

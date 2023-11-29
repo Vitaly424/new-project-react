@@ -15,7 +15,7 @@ export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponen
     const { t } = useTranslation();
 
     return (
-        <div className={classNames(cls.ArticleImageBlockComponent, {}, [className])}>
+        <div className={classNames('', {}, [className])}>
             <img src={block.src} alt={block.title} className={cls.img} />
             {block.title && (
                 <Text text={block.title} align={TextAlign.CENTER} />
