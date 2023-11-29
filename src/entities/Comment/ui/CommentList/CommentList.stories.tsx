@@ -1,13 +1,13 @@
 import React from 'react';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import {CommentList} from './CommentList';
+import { CommentList } from './CommentList';
 
 export default {
     title: 'shared/CommentList',
     component: CommentList,
     argTypes: {
-        backgroundColor: {control: 'color'},
+        backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof CommentList>;
 
