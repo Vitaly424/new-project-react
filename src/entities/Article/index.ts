@@ -13,3 +13,4 @@ export {
 export { ArticleViewSelector } from './ui/ArticleVIewSelector/ArticleViewSelector';
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
+export { getArticleDetailsData } from './model/selectors/articleDetails';
