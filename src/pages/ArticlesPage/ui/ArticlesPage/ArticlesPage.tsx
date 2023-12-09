@@ -20,7 +20,6 @@ interface ArticlesPageProps {
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
 };
-
 const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
     const { t } = useTranslation();
