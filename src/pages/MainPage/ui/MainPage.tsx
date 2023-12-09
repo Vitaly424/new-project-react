@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from 'shared/ui/Input/Input';
-import { HStack } from 'shared/ui/Stack';
-import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Page } from 'widgets/Page/Page';
-import * as stream from 'stream';
 
 const MainPage = () => {
     const { t } = useTranslation();
