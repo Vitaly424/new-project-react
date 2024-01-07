@@ -3,8 +3,8 @@ import { memo, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Select, SelectOption } from '@/shared/ui/Select';
 import { SortOrder } from '@/shared/types';
-import { ArticleSortField } from '../../model/consts/articleConsts';
 import cls from './ArticleSortSelector.module.scss';
+import { ArticleSortField } from '@/entities/Article';
 
 interface ArticleSortSelectorProps {
     className?: string;
@@ -16,15 +16,11 @@ interface ArticleSortSelectorProps {
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     const {
-        className,
-        sort,
-        order,
-        onChangeSort,
-        onChangeOrder,
+        className, onChangeOrder, onChangeSort, order, sort,
     } = props;
     const { t } = useTranslation();
 
-    const orderOption = useMemo<SelectOption<SortOrder>[]>(() => [
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(() => [
         {
             value: 'asc',
             content: t('возрастанию'),
@@ -38,7 +34,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(() => [
         {
             value: ArticleSortField.CREATED,
-            content: t('дата создания'),
+            content: t('дате создания'),
         },
         {
             value: ArticleSortField.TITLE,
@@ -50,28 +46,20 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         },
     ], [t]);
 
-    // const changeSortHandler = useCallback((newSort: string) => {
-    //     onChangeSort(newSort as ArticleSortField);
-    // }, [onChangeSort]);
-    //
-    // const changeOrderHandler = useCallback((newOrder: string) => {
-    //     onChangeOrder(newOrder as SortOrder);
-    // }, [onChangeOrder]);
-
     return (
         <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-            <Select
+            <Select<ArticleSortField>
                 options={sortFieldOptions}
-                label={t('Сортировать по')}
+                label={t('Сортировать ПО')}
                 value={sort}
                 onChange={onChangeSort}
             />
             <Select
-                className={cls.order}
-                options={orderOption}
+                options={orderOptions}
                 label={t('по')}
                 value={order}
                 onChange={onChangeOrder}
+                className={cls.order}
             />
         </div>
     );
