@@ -88,7 +88,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
                     <AppImage
-                        errorFallback={<img src="" />}
                         fallback={<Skeleton width={200} height={200} />}
                         alt={article.title}
                         src={article.img}
