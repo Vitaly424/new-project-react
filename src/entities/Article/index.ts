@@ -1,6 +1,4 @@
-export {
-    ArticleDetails,
-} from './ui/ArticleDetails/ArticleDetails';
+export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 
 export {
     ArticleType,
@@ -11,12 +9,8 @@ export {
 
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 
-export type {
-    Article,
-} from './model/types/article';
+export type { Article } from './model/types/article';
 
-export {
-    ArticleList,
-} from './ui/ArticleList/ArticleList';
+export { ArticleList } from './ui/ArticleList/ArticleList';
 
 export { getArticleDetailsData } from './model/selectors/articleDetails';
