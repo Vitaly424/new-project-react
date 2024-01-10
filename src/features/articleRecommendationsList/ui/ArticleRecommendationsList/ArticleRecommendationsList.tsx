@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { t } from 'i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize } from '@/shared/ui/Text';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleList } from '@/entities/Article';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { useArticleRecommendationsList } from '../../api/ArticleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {
