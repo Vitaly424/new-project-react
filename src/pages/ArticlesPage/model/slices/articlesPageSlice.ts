@@ -10,10 +10,10 @@ import {
     ArticleView,
     ArticleSortField,
 } from '@/entities/Article';
-import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { SortOrder } from '@/shared/types/sort';
-import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 
 const articlesAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
@@ -34,8 +34,8 @@ const articlesPageSlice = createSlice({
         page: 1,
         hasMore: true,
         _inited: false,
-        limit: 0,
-        sort: ArticleSortField.VIEWS,
+        limit: 9,
+        sort: ArticleSortField.CREATED,
         search: '',
         order: 'asc',
         type: ArticleType.ALL,
@@ -43,7 +43,10 @@ const articlesPageSlice = createSlice({
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload;
-            localStorage.setItem(ARTICLE_VIEW_LOCALSTORAGE_KEY, action.payload);
+            localStorage.setItem(
+                ARTICLES_VIEW_LOCALSTORAGE_KEY,
+                action.payload,
+            );
         },
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
@@ -62,7 +65,7 @@ const articlesPageSlice = createSlice({
         },
         initState: (state) => {
             const view = localStorage.getItem(
-                ARTICLE_VIEW_LOCALSTORAGE_KEY,
+                ARTICLES_VIEW_LOCALSTORAGE_KEY,
             ) as ArticleView;
             state.view = view;
             state.limit = view === ArticleView.BIG ? 4 : 9;
@@ -96,5 +99,5 @@ const articlesPageSlice = createSlice({
     },
 });
 
-export const { reducer: articlesPageReducer } = articlesPageSlice;
-export const { actions: articlesPageActions } = articlesPageSlice;
+export const { reducer: articlesPageReducer, actions: articlesPageActions } =
+    articlesPageSlice;
